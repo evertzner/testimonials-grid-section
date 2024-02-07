@@ -1,0 +1,15 @@
+@import '@fontsource/barlow-semi-condensed';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+  }
+
+  body {
+    @apply text-[13px] bg-gray-100 p-16 lg:p-28;
+  }
+}
