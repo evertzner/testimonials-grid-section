@@ -10,6 +10,6 @@
   }
 
   body {
-    @apply text-[13px] bg-gray-100 p-16 lg:p-28;
+    @apply text-[13px] bg-gray-100 p-16 lg:p-28 2xl:p-96;
   }
 }
