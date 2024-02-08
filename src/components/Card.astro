@@ -12,21 +12,24 @@ interface Props {
   quote: boolean;
 }
 
-const { image, name, title, highlight, details, background, textColor, cols, rows } = Astro.props;
+const { image, name, title, highlight, details, background, textColor, cols, rows, quote } = Astro.props;
+
+import quotation from '../../public/assets/images/bg-pattern-quotation.svg';
 ---
 
-<div class={`flex flex-col gap-2 ${background} ${textColor} p-8 rounded-lg ${cols} ${rows}`}>
+<div class={`flex flex-col gap-2 ${background} ${textColor} p-8 rounded-lg ${cols} ${rows} relative`}>
+  {quote && <img src={quotation.src} alt="quotation" class="absolute z-10 -m-8 right-28">}
   <div class='flex gap-4'>
     <img
-      class='rounded-full border-2 border-white border-opacity-40 w-8'
+      class='rounded-full border-2 border-white border-opacity-40 w-8 z-20'
       src={`/assets/images/image-${image}.jpg`}
       alt={name}
     />
-    <div class='flex flex-col justify-center'>
+    <div class='flex flex-col justify-center z-20'>
       <span class='leading-none'>{name}</span>
       <span class={`${textColor} text-opacity-50 text-xs leading-none`}>{title}</span>
     </div>
   </div>
-  <p class='font-semibold text-lg tracking-wide leading-snug'>{highlight}</p>
-  <p class={`${textColor} text-opacity-70`}>{details}</p>
+  <p class='font-semibold text-lg tracking-wide leading-snug z-20'>{highlight}</p>
+  <p class={`${textColor} text-opacity-70 z-20`}>{details}</p>
 </div>
